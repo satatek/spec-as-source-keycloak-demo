@@ -1,0 +1,30 @@
+body.pulse-login-body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255, 111, 97, 0.28), transparent 20%),
+    radial-gradient(circle at 80% 10%, rgba(255, 197, 61, 0.2), transparent 18%),
+    linear-gradient(135deg, #fff5ef 0%, #ffe0d2 45%, #ffc7ba 100%);
+}
+
+.pulse-login .login-pf-page,
+.pulse-login #kc-header-wrapper,
+.pulse-login .card-pf {
+  font-family: "Sora", "IBM Plex Sans", sans-serif;
+}
+
+.pulse-login .card-pf {
+  border: 1px solid rgba(165, 61, 42, 0.12);
+  border-radius: 30px;
+  box-shadow: 0 26px 76px rgba(196, 101, 48, 0.2);
+}
+
+.pulse-login .pf-c-button.pf-m-primary {
+  background: #ff6f61;
+  border-color: #ff6f61;
+}
+
+.pulse-login .pf-c-button.pf-m-primary:hover {
+  background: #e25445;
+  border-color: #e25445;
+}

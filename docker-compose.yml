@@ -1,0 +1,38 @@
+services:
+  db:
+    image: docker.io/library/postgres:18.3
+    container_name: postgres_db
+    restart: always
+    network_mode: host
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgresdb
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+  keycloak:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: keycloak
+    restart: always
+    network_mode: host
+    depends_on:
+      - db
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://127.0.0.1:5432/postgresdb
+      KC_DB_USERNAME: postgres
+      KC_DB_PASSWORD: postgres
+      KC_HEALTH_ENABLED: "true"
+      KC_METRICS_ENABLED: "true"
+    command:
+      - start-dev
+      - --http-enabled=true
+      - --hostname=http://localhost:8080
+
+volumes:
+  postgres_data:

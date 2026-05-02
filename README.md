@@ -238,6 +238,153 @@ Right now, the README defines the challenge clearly:
 - provide a bunch of sleek login templates
 - keep the implementation aligned with a specification-first workflow
 
+## Recommended Docker Setup
+
+For Keycloak, the cleanest approach is to create a custom image on top of the official container image and copy your themes into `/opt/keycloak/themes` during the image build.
+
+This repository now includes that baseline setup using the current stable Keycloak version `26.6.1`.
+
+Why this approach is the right one:
+
+- the image is immutable and reproducible
+- themes are versioned together with the infrastructure
+- no volume mount is required in production just to inject branding
+- the container already starts with the theme files baked into the image
+
+### Files
+
+- `Dockerfile`
+- `themes/README.md`
+- `themes/demo/login/theme.properties`
+- `themes/demo/login/resources/css/login.css`
+- `themes/atlas/login/theme.properties`
+- `themes/noir/login/theme.properties`
+- `themes/pulse/login/theme.properties`
+- `themes/terminal/login/theme.properties`
+
+### Theme Structure
+
+Keycloak themes should live in a structure like this:
+
+```text
+themes/
+	demo/
+		login/
+			theme.properties
+			resources/
+				css/
+					login.css
+```
+
+If you need Freemarker overrides later, add templates under:
+
+```text
+themes/demo/login/*.ftl
+```
+
+In most cases, start by inheriting from `keycloak.v2` and only override CSS first. That keeps upgrades much safer than copying the whole default theme.
+
+### Build The Image
+
+```bash
+docker build -t spec-keycloak .
+```
+
+### Run Locally
+
+```bash
+docker run --rm -p 8080:8080 \
+	-e KC_BOOTSTRAP_ADMIN_USERNAME=admin \
+	-e KC_BOOTSTRAP_ADMIN_PASSWORD=admin \
+	spec-keycloak
+```
+
+Then open `http://localhost:8080`.
+
+### Activate The Theme
+
+After logging into the Keycloak admin console:
+
+1. open your realm
+2. go to Realm settings
+3. open the Themes tab
+4. set Login theme to `demo`
+
+This repository now ships multiple ready-to-brand login themes:
+
+- `demo`
+- `atlas`
+- `noir`
+- `pulse`
+- `terminal`
+
+See `themes/README.md` for the theme catalog and intended branding direction of each one.
+
+### Why The Dockerfile Copies Themes Before `kc.sh build`
+
+The important detail is this sequence:
+
+```dockerfile
+COPY --chown=keycloak:keycloak themes/ /opt/keycloak/themes/
+RUN /opt/keycloak/bin/kc.sh build
+```
+
+That makes the customizations part of the built Keycloak distribution inside the image. If you only mount themes at runtime, local development is easy, but the resulting deployment is less reproducible.
+
+### Practical Recommendation
+
+Use two modes depending on the environment:
+
+- for local iteration on visual design, a bind mount can be convenient
+- for CI, staging, and production, bake the theme into the image exactly like this repository does
+
+That split gives you fast frontend-style iteration without sacrificing immutable deployment artifacts.
+
+## Docker Compose With Keycloak And Postgres
+
+For local development, this repository now includes a `docker-compose.yml` that starts:
+
+- Keycloak from the local custom image build
+- PostgreSQL 16 as the Keycloak database
+
+### Files
+
+- `docker-compose.yml`
+- `.env.example`
+
+### First Run
+
+```bash
+cp .env.example .env
+docker compose up --build
+```
+
+Keycloak will be available at `http://localhost:8080`.
+
+### Default Ports
+
+- `8080`: Keycloak HTTP
+- `9000`: Keycloak health and metrics
+- PostgreSQL is exposed only inside the Compose network
+
+### Default Credentials
+
+The example environment file starts with:
+
+- admin user: `admin`
+- admin password: `admin`
+- database: `keycloak`
+- database user: `keycloak`
+- database password: `keycloak`
+
+Change these values in `.env` before sharing the environment with anyone else.
+
+### Notes
+
+- Keycloak waits for Postgres health before starting.
+- Postgres data is persisted in the named volume `postgres_data`.
+- The login themes baked into the Docker image remain available when running through Compose.
+
 ## Closing Thought
 
 ```text
