@@ -33,6 +33,9 @@ services:
       - start-dev
       - --http-enabled=true
       - --hostname=http://localhost:8080
+      - --spi-theme--static-max-age=-1
+      - --spi-theme--cache-themes=false
+      - --spi-theme--cache-templates=false
 
 volumes:
   postgres_data:
