@@ -72,8 +72,12 @@
   Fill them out with the right edge cases.
 -->
 
-- What happens when [boundary condition]?
-- How does system handle [error scenario]?
+- What happens when the affected Keycloak login path is unavailable, misconfigured,
+  or returns an authentication error?
+- How does the system handle keyboard-only navigation, focus visibility, and
+  contrast for any changed login surface?
+- What happens when a theme or container change would diverge from the supported
+  inherited Keycloak base behavior?
 
 ## Requirements *(mandatory)*
 
@@ -89,11 +93,19 @@
 - **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
 - **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
 - **FR-005**: System MUST [behavior, e.g., "log all security events"]
+- **FR-006**: System MUST define any security-sensitive Keycloak impact,
+  including changes to authentication, authorization, secrets, sessions,
+  clients, realms, or container runtime behavior.
+- **FR-007**: System MUST define how the affected login experience preserves
+  clarity, accessibility, consistency, and a secure, frictionless user journey.
+- **FR-008**: System MUST define the required validation path, including image
+  build verification when packaging changes and smoke scenarios for affected
+  theme or login behavior.
 
 *Example of marking unclear requirements:*
 
-- **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+- **FR-009**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
+- **FR-010**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
 
 ### Key Entities *(include if feature involves data)*
 
@@ -113,6 +125,8 @@
 - **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
 - **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
 - **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+- **SC-005**: [Accessibility metric, e.g., "Primary login journey remains fully keyboard-operable with visible focus states on all changed screens"]
+- **SC-006**: [Validation metric, e.g., "Affected container or theme changes pass documented build and smoke validation before release"]
 
 ## Assumptions
 

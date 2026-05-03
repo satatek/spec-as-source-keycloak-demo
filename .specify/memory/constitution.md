@@ -1,50 +1,111 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+Version change: template -> 1.0.0
+Modified principles:
+- Template Principle 1 -> I. Specification Is The Source Of Truth
+- Template Principle 2 -> II. Identity Changes Preserve Security Boundaries
+- Template Principle 3 -> III. Login UX Must Be Clear, Accessible, And Consistent
+- Template Principle 4 -> IV. Theme And Image Changes Must Stay Upgrade-Safe
+- Template Principle 5 -> V. Reproducible Validation Is Mandatory
+Added sections:
+- Delivery Constraints
+- Workflow & Quality Gates
+Removed sections:
+- None
+Templates requiring updates:
+- ✅ .specify/templates/plan-template.md
+- ✅ .specify/templates/spec-template.md
+- ✅ .specify/templates/tasks-template.md
+- ✅ README.md (no update required after review; current guidance already aligns)
+- ✅ .specify/templates/commands/*.md (directory not present; no update required)
+Follow-up TODOs:
+- None
+-->
+
+# spec-as-source-keycloak-demo Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Specification Is The Source Of Truth
+Every change to Keycloak behavior, login presentation, container packaging, or
+operational setup MUST trace back to an explicit specification artifact before
+implementation begins. Human authors define intent, security expectations,
+workflow boundaries, and desired user experience; implementation work MUST stay
+derived from that intent. Rationale: identity systems become fragile when
+requirements are implied instead of stated.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Identity Changes Preserve Security Boundaries
+Any change that affects authentication, authorization, session behavior,
+credentials, secrets, realm/client configuration, or container runtime settings
+MUST document the security impact and MUST avoid weakening existing trust
+boundaries without an explicit approved requirement. Convenience changes MUST
+NOT bypass Keycloak defaults, safe inheritance, or secure-by-default container
+behavior. Rationale: in an identity project, a small shortcut can create a
+large blast radius.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Login UX Must Be Clear, Accessible, And Consistent
+Login design MUST prioritize clarity, simplicity, accessibility, consistency,
+and a secure, frictionless user experience. Theme work MUST preserve readable
+contrast, keyboard usability, clear focus states, predictable error handling,
+and branding that does not obscure authentication intent. New themes or theme
+changes MUST explain how they maintain usability alongside visual direction.
+Rationale: polished identity UX only matters when it remains trustworthy and
+easy to complete.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Theme And Image Changes Must Stay Upgrade-Safe
+Theme customization MUST prefer inheriting from supported Keycloak base themes
+and changing CSS or small targeted overrides before introducing heavier template
+customization. Docker images MUST bake themes into the Keycloak image so the
+runtime artifact is reproducible and versioned with the repository. Rationale:
+minimal, inheritance-friendly customization reduces upgrade risk and keeps
+deployment behavior predictable.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Reproducible Validation Is Mandatory
+Every materially changed feature or maintenance task MUST define and execute the
+smallest validation set that proves the spec, security expectations, and user
+experience still hold. At minimum, this includes build validation for image
+changes and a documented smoke path for affected login/theme behavior; changes
+touching identity flows or security-sensitive configuration MUST add scenario-
+level verification. Rationale: identity failures are expensive, and manual
+confidence is not sufficient evidence.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Delivery Constraints
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- The primary project surface is Keycloak template customization and maintenance,
+	including creation and management of Docker images for Keycloak.
+- Repository structure, theme catalog, and container setup MUST remain simple
+	enough for maintainers to inspect without reverse engineering generated output.
+- Changes to theme assets MUST be scoped so maintainers can tell which theme,
+	screen, or shared resource changed.
+- Runtime configuration, sample credentials, and local compose defaults MUST NOT
+	be presented as production-hardening guidance unless explicitly marked.
+- Any proposal that adds non-CSS theme overrides, extra runtime services, or new
+	operational dependencies MUST justify why a simpler approach was rejected.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Workflow & Quality Gates
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- Specifications MUST state the affected Keycloak surface, intended user journey,
+	accessibility expectations, and validation path before planning is complete.
+- Implementation plans MUST include a constitution check covering spec traceability,
+	security impact, upgrade safety, and reproducible validation.
+- Tasks MUST include work for validation when a change affects container builds,
+	theme behavior, accessibility, or security-sensitive configuration.
+- Reviews MUST reject changes that introduce undocumented identity behavior,
+	reduce accessibility clarity, or rely on one-off runtime tweaks instead of
+	reproducible image content.
+- README and operator-facing guidance MUST stay consistent with the currently
+	supported build and local-run workflow.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes conflicting local habits and informal workflow
+shortcuts. Amendments require a documented update to this file, explicit review
+of affected templates and guidance, and a recorded rationale in the Sync Impact
+Report. Versioning follows semantic versioning: MAJOR for incompatible governance
+changes or principle removals, MINOR for new principles or materially expanded
+requirements, and PATCH for clarifications that do not change meaning. Every
+plan, task set, review, and release-facing documentation change MUST verify
+compliance with this constitution. The README and Spec Kit templates are the
+minimum required compliance surfaces for this repository.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-05-02 | **Last Amended**: 2026-05-02

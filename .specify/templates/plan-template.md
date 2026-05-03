@@ -31,7 +31,17 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- Specification source is identified and every planned change traces to an
+  explicit requirement, user journey, or operational constraint.
+- Security impact is documented for any change affecting Keycloak auth flows,
+  authorization, secrets, session behavior, container runtime, or realm/client
+  configuration.
+- Theme and UI work preserves clarity, accessibility, consistency, and a secure,
+  frictionless login experience.
+- Theme customization remains upgrade-safe: prefer base-theme inheritance, CSS,
+  and targeted overrides before heavier template changes.
+- Validation is reproducible and scoped to the change, including image build
+  verification and an affected login/theme smoke path at minimum.
 
 ## Project Structure
 
