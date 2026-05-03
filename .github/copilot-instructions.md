@@ -1,5 +1,5 @@
 <!-- SPECKIT START -->
 For additional context about technologies to be used, project structure,
 shell commands, and other important information, read
-specs/001-futuristic-login-theme/plan.md
+specs/002-remove-themes-futuristic/plan.md
 <!-- SPECKIT END -->
