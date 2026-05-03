@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-labelledby="title desc">
+  <title id="title">Futuristic interface illustration</title>
+  <desc id="desc">Abstract layered geometric shapes, grid lines, and glowing orbs suggesting a futuristic digital system.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#13284a"/>
+      <stop offset="55%" stop-color="#1a2f5f"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#7cc9ff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.6"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="720" height="720" rx="40" fill="url(#bg)"/>
+  <g opacity="0.28" stroke="#89b8ff" stroke-width="1">
+    <path d="M80 120h560"/>
+    <path d="M80 220h560"/>
+    <path d="M80 320h560"/>
+    <path d="M80 420h560"/>
+    <path d="M80 520h560"/>
+    <path d="M140 80v560"/>
+    <path d="M280 80v560"/>
+    <path d="M420 80v560"/>
+    <path d="M560 80v560"/>
+  </g>
+  <g filter="url(#glow)">
+    <circle cx="530" cy="180" r="82" fill="#7cc9ff" fill-opacity="0.18"/>
+    <circle cx="570" cy="420" r="112" fill="#8b5cf6" fill-opacity="0.18"/>
+    <circle cx="310" cy="540" r="90" fill="#58a6ff" fill-opacity="0.12"/>
+  </g>
+  <g fill="none" stroke="url(#beam)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M160 500 320 230 470 320 610 120"/>
+    <path d="M150 580 280 420 395 470 545 270" opacity="0.78"/>
+  </g>
+  <g fill="#d7e8ff" fill-opacity="0.18" stroke="#b8d4ff" stroke-opacity="0.46">
+    <rect x="122" y="150" width="190" height="120" rx="20"/>
+    <rect x="248" y="330" width="255" height="158" rx="24"/>
+    <rect x="420" y="150" width="160" height="92" rx="18"/>
+  </g>
+  <g fill="#eef4ff">
+    <circle cx="218" cy="205" r="9"/>
+    <circle cx="458" cy="194" r="8"/>
+    <circle cx="484" cy="194" r="8" opacity="0.65"/>
+    <circle cx="510" cy="194" r="8" opacity="0.35"/>
+    <circle cx="507" cy="440" r="10"/>
+  </g>
+</svg>

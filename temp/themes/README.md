@@ -4,9 +4,12 @@ This repository includes multiple login themes that are ready for branding witho
 
 ## Available Themes
 
-- `atlas`: calm teal palette suitable for trust-oriented and infrastructure-heavy products
+- `demo`: warm neutral palette for general-purpose product branding
+- `atlas`: calm teal palette for B2B, infrastructure, or trust-oriented brands
 - `futuristic`: luminous blue-violet palette with Material-inspired surfaces for modern identity platforms
-- `windows`: minimalist Fluent-inspired surface system with strong accessibility defaults
+- `noir`: premium dark palette for finance, security, or executive dashboards
+- `pulse`: energetic coral palette for consumer-facing products
+- `terminal`: technical green-on-dark palette for developer platforms
 
 ## Recommended Branding Workflow
 
@@ -20,11 +23,6 @@ This repository includes multiple login themes that are ready for branding witho
 - Uses a dark, high-contrast Material-inspired surface system with blue-violet accents.
 - Keeps the authentication form dominant while a packaged hero illustration adds futuristic identity on larger screens.
 - Falls back to gradient-only composition on narrow screens so readability and task clarity remain primary.
-
-## Supported Theme Set
-
-- Supported custom login themes shipped by this repository are `futuristic`, `windows`, and `atlas`.
-- If the Keycloak admin selector still shows retired themes, rebuild the image and restart the runtime before treating it as a source-structure issue.
 
 ## Directory Convention
 

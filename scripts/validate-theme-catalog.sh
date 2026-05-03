@@ -29,7 +29,17 @@ if ! grep -qx 'futuristic' <<<"${THEME_LIST}"; then
   exit 1
 fi
 
-for retired_theme in demo atlas noir pulse terminal; do
+if ! grep -qx 'windows' <<<"${THEME_LIST}"; then
+  echo "Missing supported theme: windows" >&2
+  exit 1
+fi
+
+if ! grep -qx 'atlas' <<<"${THEME_LIST}"; then
+  echo "Missing supported theme: atlas" >&2
+  exit 1
+fi
+
+for retired_theme in demo noir pulse terminal; do
   if grep -qx "${retired_theme}" <<<"${THEME_LIST}"; then
     echo "Retired theme still packaged: ${retired_theme}" >&2
     exit 2

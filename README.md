@@ -255,12 +255,12 @@ Why this approach is the right one:
 
 - `Dockerfile`
 - `themes/README.md`
-- `themes/demo/login/theme.properties`
-- `themes/demo/login/resources/css/login.css`
+- `themes/futuristic/login/theme.properties`
+- `themes/futuristic/login/resources/css/login.css`
+- `themes/windows/login/theme.properties`
+- `themes/windows/login/resources/css/login.css`
 - `themes/atlas/login/theme.properties`
-- `themes/noir/login/theme.properties`
-- `themes/pulse/login/theme.properties`
-- `themes/terminal/login/theme.properties`
+- `themes/atlas/login/resources/css/login.css`
 
 ### Theme Structure
 
@@ -268,7 +268,7 @@ Keycloak themes should live in a structure like this:
 
 ```text
 themes/
-	demo/
+	futuristic/
 		login/
 			theme.properties
 			resources/
@@ -279,7 +279,7 @@ themes/
 If you need Freemarker overrides later, add templates under:
 
 ```text
-themes/demo/login/*.ftl
+themes/futuristic/login/*.ftl
 ```
 
 In most cases, start by inheriting from `keycloak.v2` and only override CSS first. That keeps upgrades much safer than copying the whole default theme.
@@ -308,15 +308,13 @@ After logging into the Keycloak admin console:
 1. open your realm
 2. go to Realm settings
 3. open the Themes tab
-4. set Login theme to `demo`
+4. set Login theme to `atlas`, `futuristic`, or `windows`
 
-This repository now ships multiple ready-to-brand login themes:
+This repository now ships ready-to-brand login themes:
 
-- `demo`
 - `atlas`
-- `noir`
-- `pulse`
-- `terminal`
+- `futuristic`
+- `windows`
 
 See `themes/README.md` for the theme catalog and intended branding direction of each one.
 

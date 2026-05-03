@@ -2,12 +2,17 @@
 .github
 .specify
 .vscode
+.idea
 node_modules
 tmp
 dist
 build
 .DS_Store
+Thumbs.db
 .env
 .env.*
 *.log
+*.log*
 coverage
+Dockerfile*
+.dockerignore
