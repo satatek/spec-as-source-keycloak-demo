@@ -6,6 +6,7 @@ This repository includes multiple login themes that are ready for branding witho
 
 - `demo`: warm neutral palette for general-purpose product branding
 - `atlas`: calm teal palette for B2B, infrastructure, or trust-oriented brands
+- `futuristic`: luminous blue-violet palette with Material-inspired surfaces for modern identity platforms
 - `noir`: premium dark palette for finance, security, or executive dashboards
 - `pulse`: energetic coral palette for consumer-facing products
 - `terminal`: technical green-on-dark palette for developer platforms
@@ -16,6 +17,12 @@ This repository includes multiple login themes that are ready for branding witho
 2. Adjust the button color and background gradient first.
 3. Replace font families with your brand typography if needed.
 4. Only add `.ftl` overrides when CSS alone is no longer enough.
+
+## Futuristic Theme Notes
+
+- Uses a dark, high-contrast Material-inspired surface system with blue-violet accents.
+- Keeps the authentication form dominant while a packaged hero illustration adds futuristic identity on larger screens.
+- Falls back to gradient-only composition on narrow screens so readability and task clarity remain primary.
 
 ## Directory Convention
 

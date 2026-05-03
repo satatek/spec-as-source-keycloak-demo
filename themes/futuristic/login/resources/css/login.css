@@ -1,0 +1,332 @@
+body.futuristic-login-body {
+  margin: 0;
+  min-height: 100vh;
+  color: #e5eefc;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(53, 119, 255, 0.22), transparent 22%),
+    radial-gradient(circle at 85% 15%, rgba(126, 87, 255, 0.18), transparent 20%),
+    linear-gradient(145deg, #06111f 0%, #0b1d34 45%, #13284a 100%);
+}
+
+.futuristic-login .login-pf-page,
+.futuristic-login #kc-header-wrapper,
+.futuristic-login .card-pf,
+.futuristic-login .pf-c-form,
+.futuristic-login .pf-c-button,
+.futuristic-login .pf-c-form-control {
+  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
+}
+
+.futuristic-login .login-pf-page {
+  display: grid;
+  align-items: center;
+  min-height: 100vh;
+  padding: 32px 20px;
+}
+
+.futuristic-login .card-pf {
+  position: relative;
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: 32px;
+  border: 1px solid rgba(128, 164, 255, 0.24);
+  border-radius: 32px;
+  color: #e5eefc;
+  background:
+    linear-gradient(180deg, rgba(8, 20, 38, 0.94), rgba(8, 20, 38, 0.9)),
+    url("../img/futuristic-hero.svg") right center / min(46%, 520px) no-repeat;
+  box-shadow: 0 32px 96px rgba(3, 10, 24, 0.45);
+  overflow: hidden;
+}
+
+.futuristic-login .card-pf::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(6, 17, 31, 0.84) 0%, rgba(6, 17, 31, 0.76) 44%, rgba(6, 17, 31, 0.28) 72%, rgba(6, 17, 31, 0.08) 100%);
+  pointer-events: none;
+}
+
+.futuristic-login .card-pf > * {
+  position: relative;
+  z-index: 1;
+}
+
+.futuristic-login #kc-header-wrapper {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8cb6ff;
+}
+
+.futuristic-login #kc-page-title,
+.futuristic-login .login-pf-header h1 {
+  margin-bottom: 12px;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.1;
+  color: #f5f8ff;
+}
+
+.futuristic-login .instruction,
+.futuristic-login #kc-content-wrapper,
+.futuristic-login .pf-c-form__helper-text,
+.futuristic-login .pf-c-form__label-text {
+  color: #bdd0f8;
+}
+
+.futuristic-login .pf-c-form {
+  max-width: 520px;
+}
+
+.futuristic-login #kc-content,
+.futuristic-login #kc-content-wrapper,
+.futuristic-login #kc-info-wrapper,
+.futuristic-login #kc-form-wrapper,
+.futuristic-login #kc-reset-password-form,
+.futuristic-login #kc-register-form,
+.futuristic-login form[action],
+.futuristic-login .login-pf-settings,
+.futuristic-login .login-pf-signup,
+.futuristic-login .pf-c-login__main,
+.futuristic-login .pf-c-login__main-body {
+  max-width: 520px;
+}
+
+.futuristic-login .pf-c-form-group {
+  margin-bottom: 20px;
+}
+
+.futuristic-login .pf-c-form-control {
+  min-height: 52px;
+  border: 1px solid rgba(145, 176, 255, 0.26);
+  border-radius: 18px;
+  color: #eef4ff;
+  background: rgba(10, 22, 40, 0.9);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.futuristic-login .pf-c-form-control:hover {
+  border-color: rgba(145, 176, 255, 0.4);
+}
+
+.futuristic-login .pf-c-form-control:focus,
+.futuristic-login .pf-c-form-control:focus-visible {
+  border-color: #7cc9ff;
+  box-shadow: 0 0 0 3px rgba(124, 201, 255, 0.22);
+  outline: none;
+}
+
+.futuristic-login .pf-c-button.pf-m-primary,
+.futuristic-login input[type="submit"] {
+  min-height: 52px;
+  border: 1px solid #58a6ff;
+  border-radius: 18px;
+  color: #06111f;
+  background: linear-gradient(135deg, #7cc9ff 0%, #7f89ff 100%);
+  box-shadow: 0 18px 40px rgba(88, 166, 255, 0.3);
+}
+
+.futuristic-login .pf-c-button.pf-m-primary:hover,
+.futuristic-login input[type="submit"]:hover {
+  border-color: #8fc3ff;
+  background: linear-gradient(135deg, #94d7ff 0%, #989dff 100%);
+}
+
+.futuristic-login .pf-c-button.pf-m-primary:focus,
+.futuristic-login .pf-c-button.pf-m-primary:focus-visible,
+.futuristic-login input[type="submit"]:focus,
+.futuristic-login input[type="submit"]:focus-visible,
+.futuristic-login a:focus,
+.futuristic-login a:focus-visible,
+.futuristic-login input[type="checkbox"]:focus,
+.futuristic-login input[type="checkbox"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(124, 201, 255, 0.32);
+}
+
+.futuristic-login .alert-error,
+.futuristic-login .pf-c-alert.pf-m-danger,
+.futuristic-login .pf-c-alert,
+.futuristic-login .pf-c-alert.pf-m-success,
+.futuristic-login .pf-c-alert.pf-m-info,
+.futuristic-login #input-error,
+.futuristic-login .kc-feedback-text {
+  padding: 12px 14px;
+  border-radius: 18px;
+  color: #ffd5d3;
+  background: rgba(117, 28, 41, 0.55);
+}
+
+.futuristic-login .pf-c-alert.pf-m-success {
+  color: #d8ffe7;
+  background: rgba(18, 101, 73, 0.42);
+}
+
+.futuristic-login .pf-c-alert.pf-m-info {
+  color: #d7ebff;
+  background: rgba(25, 76, 136, 0.4);
+}
+
+.futuristic-login .login-pf-signup,
+.futuristic-login #kc-info,
+.futuristic-login #kc-form-options,
+.futuristic-login #kc-form-buttons,
+.futuristic-login #kc-social-providers {
+  max-width: 520px;
+}
+
+.futuristic-login #kc-social-providers ul,
+.futuristic-login .pf-c-login__main-footer-links,
+.futuristic-login .pf-c-list,
+.futuristic-login .pf-c-list__item {
+  color: #d7e6ff;
+}
+
+.futuristic-login #kc-social-providers a,
+.futuristic-login .pf-c-button.pf-m-block,
+.futuristic-login .pf-c-button.pf-m-control {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid rgba(145, 176, 255, 0.24);
+  color: #e8f0ff;
+  background: rgba(12, 24, 43, 0.85);
+}
+
+.futuristic-login #kc-social-providers a:hover,
+.futuristic-login .pf-c-button.pf-m-block:hover,
+.futuristic-login .pf-c-button.pf-m-control:hover {
+  border-color: rgba(145, 176, 255, 0.42);
+  background: rgba(18, 31, 56, 0.92);
+}
+
+.futuristic-login input[type="checkbox"],
+.futuristic-login input[type="radio"] {
+  accent-color: #7cc9ff;
+}
+
+.futuristic-login .pf-c-form__label,
+.futuristic-login .pf-c-check__label,
+.futuristic-login .pf-c-radio__label,
+.futuristic-login .pf-c-check__description,
+.futuristic-login .pf-c-radio__description,
+.futuristic-login #kc-otp-supported-apps,
+.futuristic-login #kc-totp-settings,
+.futuristic-login #kc-webauthn-settings,
+.futuristic-login #kc-terms-text,
+.futuristic-login .instruction,
+.futuristic-login .subtitle {
+  color: #d7e6ff;
+}
+
+.futuristic-login #kc-webauthn-settings,
+.futuristic-login #kc-otp-supported-apps,
+.futuristic-login #kc-totp-settings,
+.futuristic-login #kc-form-options-wrapper,
+.futuristic-login .pf-c-login__main-footer-band,
+.futuristic-login #kc-info {
+  padding: 16px 18px;
+  border: 1px solid rgba(128, 164, 255, 0.18);
+  border-radius: 20px;
+  background: rgba(12, 24, 43, 0.52);
+}
+
+.futuristic-login #kc-webauthn-settings code,
+.futuristic-login #kc-otp-supported-apps code,
+.futuristic-login #kc-totp-settings code,
+.futuristic-login pre,
+.futuristic-login code {
+  color: #eef4ff;
+  background: rgba(4, 12, 24, 0.82);
+}
+
+.futuristic-login .pf-c-empty-state,
+.futuristic-login .pf-c-login__main-footer,
+.futuristic-login .pf-c-content,
+.futuristic-login .pf-c-description-list {
+  color: #d7e6ff;
+}
+
+.futuristic-login a {
+  color: #9dc9ff;
+}
+
+.futuristic-login a:hover {
+  color: #d5e7ff;
+}
+
+.futuristic-login .pf-c-button.pf-m-control,
+.futuristic-login .pf-c-button.pf-m-link,
+.futuristic-login .pf-c-button.pf-m-secondary {
+  border-radius: 16px;
+}
+
+@media (max-width: 960px) {
+  .futuristic-login .card-pf {
+    padding: 28px 24px;
+    background:
+      linear-gradient(180deg, rgba(8, 20, 38, 0.94), rgba(8, 20, 38, 0.9)),
+      url("../img/futuristic-hero.svg") center top / 58% no-repeat;
+  }
+
+  .futuristic-login .card-pf::before {
+    background:
+      linear-gradient(180deg, rgba(6, 17, 31, 0.18) 0%, rgba(6, 17, 31, 0.82) 28%, rgba(6, 17, 31, 0.94) 100%);
+  }
+
+  .futuristic-login .pf-c-form,
+  .futuristic-login #kc-content,
+  .futuristic-login #kc-content-wrapper,
+  .futuristic-login #kc-info-wrapper,
+  .futuristic-login #kc-form-wrapper,
+  .futuristic-login #kc-reset-password-form,
+  .futuristic-login #kc-register-form,
+  .futuristic-login .login-pf-signup,
+  .futuristic-login #kc-info,
+  .futuristic-login #kc-form-options,
+  .futuristic-login #kc-form-buttons,
+  .futuristic-login #kc-social-providers {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .futuristic-login .login-pf-page {
+    padding: 16px;
+  }
+
+  .futuristic-login .card-pf {
+    padding: 24px 18px;
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(8, 20, 38, 0.96), rgba(8, 20, 38, 0.94));
+  }
+
+  .futuristic-login .card-pf::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at top right, rgba(73, 129, 255, 0.16), transparent 28%),
+      radial-gradient(circle at left bottom, rgba(126, 87, 255, 0.14), transparent 30%);
+    pointer-events: none;
+  }
+
+  .futuristic-login .card-pf::before {
+    display: none;
+  }
+
+  .futuristic-login #kc-webauthn-settings,
+  .futuristic-login #kc-otp-supported-apps,
+  .futuristic-login #kc-totp-settings,
+  .futuristic-login #kc-form-options-wrapper,
+  .futuristic-login .pf-c-login__main-footer-band,
+  .futuristic-login #kc-info {
+    padding: 14px;
+  }
+
+  .futuristic-login #kc-header-wrapper {
+    letter-spacing: 0.14em;
+  }
+}
