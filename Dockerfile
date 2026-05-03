@@ -9,6 +9,7 @@ ENV KC_DB=dev-file
 WORKDIR /opt/keycloak
 
 COPY --chown=keycloak:keycloak themes/futuristic/ /opt/keycloak/themes/futuristic/
+COPY --chown=keycloak:keycloak themes/windows/ /opt/keycloak/themes/windows/
 
 RUN /opt/keycloak/bin/kc.sh build
 

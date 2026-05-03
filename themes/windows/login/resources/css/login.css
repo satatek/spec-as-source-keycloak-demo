@@ -1,0 +1,341 @@
+/* =============================================================
+   Windows Minimalist Keycloak Theme
+   Feature: 005-windows-minimalist-theme
+   Design: Fluent Design / Windows 11 visual language
+   ============================================================= */
+
+/* ---- Design tokens -----------------------------------------
+   Accent:        #0078D4 (hover #106EBE, pressed #005A9E)
+   Text primary:  #1a1a1a
+   Text secondary:#323130
+   Text subtle:   #605E5C
+   Page bg:       linear-gradient(180deg, #F3F2F1, #E8E8E8)
+   Card surface:  rgba(255,255,255,0.82) + backdrop-filter
+   Card radius:   8px  | Input/Button radius: 4px
+   Input border:  #8A8886
+   Error:         #A4262C on rgba(253,231,233,0.9)
+   Success:       #107C10 on rgba(223,246,221,0.9)
+   Info:          #005A9E on rgba(222,236,249,0.9)
+   ------------------------------------------------------------ */
+
+/* ============================================================
+   Phase 3 / US1 — Windows-Inspired Login Experience
+   ============================================================ */
+
+/* T009 — Page background */
+body.windows-login-body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #F3F2F1 0%, #E8E8E8 100%);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* T010 — Page layout wrapper */
+body.windows-login-body .pf-v5-c-login {
+  display: grid;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px 16px;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* T011 — Frosted-glass login card */
+body.windows-login-body .pf-v5-c-login__main {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.08);
+  color: #1a1a1a;
+  max-width: 440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+/* T012 — Page title and brand header */
+body.windows-login-body #kc-page-title {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+body.windows-login-body #kc-header-wrapper {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #605E5C;
+  margin-bottom: 4px;
+}
+
+/* T013 — Form inputs */
+body.windows-login-body .pf-v5-c-form-control {
+  background: #ffffff;
+  border: 1px solid #8A8886;
+  border-radius: 4px;
+  color: #1a1a1a;
+  min-height: 32px;
+  padding: 6px 10px;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body.windows-login-body .pf-v5-c-form-control:hover {
+  border-color: #323130;
+}
+
+body.windows-login-body .pf-v5-c-form-control::placeholder {
+  color: #605E5C;
+}
+
+/* T014 — Primary button (Sign In) */
+body.windows-login-body .pf-v5-c-button.pf-m-primary,
+body.windows-login-body input[type="submit"] {
+  background: #0078D4;
+  color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  min-height: 32px;
+  padding: 6px 16px;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+body.windows-login-body .pf-v5-c-button.pf-m-primary:hover,
+body.windows-login-body input[type="submit"]:hover {
+  background: #106EBE;
+}
+
+body.windows-login-body .pf-v5-c-button.pf-m-primary:active,
+body.windows-login-body input[type="submit"]:active {
+  background: #005A9E;
+}
+
+/* ============================================================
+   Phase 4 / US2 — Accessible and Legible
+   ============================================================ */
+
+/* T016 — Form label colours */
+body.windows-login-body .pf-v5-c-form__label,
+body.windows-login-body .pf-v5-c-form__label-text {
+  color: #323130;
+}
+
+body.windows-login-body .pf-v5-c-form__helper-text {
+  color: #605E5C;
+}
+
+body.windows-login-body .pf-v5-c-form-group {
+  margin-bottom: 16px;
+}
+
+/* T017 — Focus rings (never suppress outline without replacement) */
+body.windows-login-body .pf-v5-c-form-control:focus,
+body.windows-login-body .pf-v5-c-form-control:focus-visible {
+  outline: 2px solid #0078D4;
+  outline-style: solid;
+  outline-offset: 1px;
+  border-color: #0078D4;
+}
+
+body.windows-login-body .pf-v5-c-button:focus,
+body.windows-login-body .pf-v5-c-button:focus-visible,
+body.windows-login-body a:focus,
+body.windows-login-body a:focus-visible,
+body.windows-login-body input[type="checkbox"]:focus,
+body.windows-login-body input[type="radio"]:focus {
+  outline: 2px solid #0078D4;
+  outline-style: solid;
+  outline-offset: 2px;
+}
+
+/* T018 — Alert surfaces */
+body.windows-login-body .pf-v5-c-alert.pf-m-danger,
+body.windows-login-body .alert-error,
+body.windows-login-body #input-error,
+body.windows-login-body .kc-feedback-text {
+  background: rgba(253, 231, 233, 0.9);
+  color: #A4262C;
+  border: 1px solid rgba(164, 38, 44, 0.2);
+  border-radius: 4px;
+  padding: 10px 12px;
+}
+
+body.windows-login-body .pf-v5-c-alert.pf-m-success {
+  background: rgba(223, 246, 221, 0.9);
+  color: #107C10;
+  border: 1px solid rgba(16, 124, 16, 0.2);
+  border-radius: 4px;
+  padding: 10px 12px;
+}
+
+body.windows-login-body .pf-v5-c-alert.pf-m-info {
+  background: rgba(222, 236, 249, 0.9);
+  color: #005A9E;
+  border: 1px solid rgba(0, 90, 158, 0.2);
+  border-radius: 4px;
+  padding: 10px 12px;
+}
+
+/* T019 — Checkbox, radio, and link colours */
+body.windows-login-body .pf-v5-c-check__label,
+body.windows-login-body .pf-v5-c-radio__label,
+body.windows-login-body .pf-v5-c-check__description,
+body.windows-login-body .pf-v5-c-radio__description {
+  color: #323130;
+}
+
+body.windows-login-body input[type="checkbox"],
+body.windows-login-body input[type="radio"] {
+  accent-color: #0078D4;
+}
+
+body.windows-login-body a {
+  color: #0078D4;
+  text-decoration: none;
+}
+
+body.windows-login-body a:hover {
+  color: #106EBE;
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Phase 5 / US3 — Consistent Across All Login Flows
+   ============================================================ */
+
+/* T021 — Secondary and link buttons */
+body.windows-login-body .pf-v5-c-button.pf-m-secondary {
+  background: transparent;
+  color: #0078D4;
+  border: 1px solid #0078D4;
+  border-radius: 4px;
+  font-family: inherit;
+  min-height: 32px;
+  padding: 6px 16px;
+  cursor: pointer;
+}
+
+body.windows-login-body .pf-v5-c-button.pf-m-secondary:hover {
+  background: rgba(0, 120, 212, 0.04);
+  border-color: #106EBE;
+  color: #106EBE;
+}
+
+body.windows-login-body .pf-v5-c-button.pf-m-link {
+  background: transparent;
+  color: #0078D4;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+body.windows-login-body .pf-v5-c-button.pf-m-link:hover {
+  color: #106EBE;
+  text-decoration: underline;
+}
+
+body.windows-login-body .pf-v5-c-button.pf-m-block {
+  width: 100%;
+}
+
+/* T022 — Footer band and card footer */
+body.windows-login-body .pf-v5-c-login__main-footer-band {
+  background: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 16px 40px;
+  color: #323130;
+  border-radius: 0 0 8px 8px;
+}
+
+body.windows-login-body .pf-v5-c-login__main-footer {
+  color: #323130;
+}
+
+body.windows-login-body .pf-v5-c-login__main-footer-links {
+  color: #323130;
+}
+
+/* T023 — OTP, TOTP settings, content blocks */
+body.windows-login-body .pf-v5-c-empty-state,
+body.windows-login-body .pf-v5-c-content,
+body.windows-login-body .pf-v5-c-description-list {
+  color: #323130;
+}
+
+body.windows-login-body #kc-otp-supported-apps,
+body.windows-login-body #kc-totp-settings,
+body.windows-login-body #kc-webauthn-settings {
+  color: #323130;
+  font-family: inherit;
+}
+
+body.windows-login-body pre,
+body.windows-login-body code {
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  color: #1a1a1a;
+  padding: 2px 6px;
+  font-size: 0.875em;
+}
+
+/* T024 — Social provider buttons */
+body.windows-login-body #kc-social-providers a,
+body.windows-login-body .pf-v5-c-button.pf-m-control {
+  display: block;
+  width: 100%;
+  min-height: 32px;
+  border: 1px solid #8A8886;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #1a1a1a;
+  font-family: inherit;
+  text-align: center;
+  padding: 6px 12px;
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body.windows-login-body #kc-social-providers a:hover,
+body.windows-login-body .pf-v5-c-button.pf-m-control:hover {
+  background: #F3F2F1;
+  border-color: #323130;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+/* ============================================================
+   Phase 6 / T025 — Responsive (≤ 640px)
+   ============================================================ */
+
+@media (max-width: 640px) {
+  body.windows-login-body .pf-v5-c-login {
+    padding: 0;
+    align-items: stretch;
+  }
+
+  body.windows-login-body .pf-v5-c-login__main {
+    border-radius: 0;
+    box-shadow: none;
+    max-width: none;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+
+  body.windows-login-body .pf-v5-c-login__main-footer-band {
+    padding: 16px 20px;
+    border-radius: 0;
+  }
+}
