@@ -36,6 +36,7 @@ The runtime satisfies this contract when:
 - The selector lists `futuristic`
 - The selector does not list `demo`, `atlas`, `noir`, `pulse`, or `terminal`
 - Selecting `futuristic` and saving results in the login page rendering with the `futuristic` theme
+- Local development validation runs with Keycloak theme caches disabled or explicitly cleared before selector checks
 
 ## Troubleshooting Contract
 
@@ -47,6 +48,14 @@ When `futuristic` is missing from the selector, the documented diagnosis order i
 4. Confirm stale theme cache is not masking changes; if caching was previously enabled, clear `data/tmp/kc-gzip-cache` or use the documented no-cache development options.
 5. Recheck the admin selector through Realm Settings > Themes.
 
+Likely diagnosis categories map to evidence as follows:
+
+- `source-structure`: `themes/futuristic/login/theme.properties` is missing or malformed in source.
+- `packaging-stale`: source is correct, but the built image does not contain `/opt/keycloak/themes/futuristic/login/theme.properties`.
+- `runtime-stale`: the rebuilt image is correct, but the running Keycloak container was not recreated from it.
+- `cache-stale`: image and runtime are correct, but cached theme state still hides updated theme content.
+- `unsupported-reference`: docs or operator expectations still refer to retired themes even though source and runtime were cleaned.
+
 ## Validation Contract
 
 Implementation is not complete until the following evidence exists:
@@ -56,3 +65,4 @@ Implementation is not complete until the following evidence exists:
 - `futuristic` is present in the admin login theme selector
 - Selecting `futuristic` results in the login page using that theme
 - Operator-facing documentation explains the rebuild/restart and cache-related diagnosis steps
+- Validation records whether the observed issue was caused by stale image content, stale runtime state, or stale cache state
