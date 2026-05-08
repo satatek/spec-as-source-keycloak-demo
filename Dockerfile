@@ -11,6 +11,10 @@ WORKDIR /opt/keycloak
 COPY --chown=keycloak:keycloak themes/futuristic/ /opt/keycloak/themes/futuristic/
 COPY --chown=keycloak:keycloak themes/windows/ /opt/keycloak/themes/windows/
 COPY --chown=keycloak:keycloak themes/atlas/ /opt/keycloak/themes/atlas/
+COPY --chown=keycloak:keycloak themes/solstice/ /opt/keycloak/themes/solstice/
+COPY --chown=keycloak:keycloak themes/nova/ /opt/keycloak/themes/nova/
+COPY --chown=keycloak:keycloak themes/verdant/ /opt/keycloak/themes/verdant/
+COPY --chown=keycloak:keycloak themes/blueprint/ /opt/keycloak/themes/blueprint/
 
 RUN /opt/keycloak/bin/kc.sh build
 
