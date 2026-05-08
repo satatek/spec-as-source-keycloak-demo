@@ -1,0 +1,172 @@
+/* =============================================================
+   SOLSTICE THEME — Reference: .split-form from logins.html
+   Split two-panel card: coral/yellow hero left, white form right
+   Scoped under .solstice-login to prevent cross-theme bleed
+   ============================================================= */
+
+/* ── Body / page background ── */
+body.solstice-login-body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f0f2f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ── Page wrapper ── */
+.solstice-login .login-pf-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* ── Outer card: split two-panel layout ── */
+.solstice-login .card-pf {
+  display: flex;
+  width: min(100%, 840px);
+  min-height: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  border: none;
+  background: #ffffff;
+  padding: 0;
+}
+
+/* ── Hero panel (left) ── */
+.solstice-login .card-pf::before {
+  content: '';
+  flex: 0 0 42%;
+  background: linear-gradient(45deg, #FF6B6B, #FFE66D);
+  display: block;
+  min-height: 100%;
+}
+
+/* ── Form panel (right) ── */
+.solstice-login .login-pf-page .login-pf-header,
+.solstice-login .card-pf .pf-c-form,
+.solstice-login .card-pf form {
+  flex: 1;
+  padding: 2.5rem 2rem;
+}
+
+/* ── Realm / header name ── */
+.solstice-login #kc-header-wrapper {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 1.5rem 1rem 0;
+}
+
+/* ── Form title ── */
+.solstice-login #kc-page-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Input fields: underline only ── */
+.solstice-login .pf-c-form-control {
+  width: 100%;
+  padding: 0.9rem 0.25rem;
+  margin: 0.4rem 0;
+  border: none;
+  border-bottom: 2px solid #e0e0e0;
+  border-radius: 0;
+  background: transparent;
+  outline: none;
+  font-size: 0.95rem;
+  transition: border-color 0.25s;
+  box-shadow: none;
+}
+
+.solstice-login .pf-c-form-control:focus {
+  border-bottom-color: #FF6B6B;
+  box-shadow: none;
+}
+
+/* ── Labels ── */
+.solstice-login .pf-c-form__label {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 0.15rem;
+}
+
+/* ── Submit button: pill shape ── */
+.solstice-login #kc-login {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  margin-top: 1.5rem;
+  background: #FF6B6B;
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.solstice-login #kc-login:hover {
+  transform: translateY(-2px);
+  background: #e85d5d;
+}
+
+.solstice-login #kc-login:focus-visible {
+  outline: 3px solid #FFE66D;
+  outline-offset: 2px;
+}
+
+/* ── Alerts / error messages ── */
+.solstice-login .pf-c-alert,
+.solstice-login .alert {
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+/* ── Secondary links (register, forgot password) ── */
+.solstice-login #kc-registration,
+.solstice-login #kc-info-message,
+.solstice-login .pf-c-form__helper-text {
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.solstice-login a {
+  color: #FF6B6B;
+  text-decoration: none;
+}
+
+.solstice-login a:hover {
+  text-decoration: underline;
+}
+
+.solstice-login a:focus-visible {
+  outline: 2px solid #FF6B6B;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ── Responsive: stack to single column below 600px ── */
+@media (max-width: 600px) {
+  .solstice-login .card-pf {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .solstice-login .card-pf::before {
+    flex: none;
+    height: 120px;
+    min-height: 0;
+    width: 100%;
+  }
+}

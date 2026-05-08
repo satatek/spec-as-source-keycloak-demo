@@ -39,6 +39,26 @@ if ! grep -qx 'atlas' <<<"${THEME_LIST}"; then
   exit 1
 fi
 
+if ! grep -qx 'solstice' <<<"${THEME_LIST}"; then
+  echo "Missing supported theme: solstice" >&2
+  exit 1
+fi
+
+if ! grep -qx 'nova' <<<"${THEME_LIST}"; then
+  echo "Missing supported theme: nova" >&2
+  exit 1
+fi
+
+if ! grep -qx 'verdant' <<<"${THEME_LIST}"; then
+  echo "Missing supported theme: verdant" >&2
+  exit 1
+fi
+
+if ! grep -qx 'blueprint' <<<"${THEME_LIST}"; then
+  echo "Missing supported theme: blueprint" >&2
+  exit 1
+fi
+
 for retired_theme in demo noir pulse terminal; do
   if grep -qx "${retired_theme}" <<<"${THEME_LIST}"; then
     echo "Retired theme still packaged: ${retired_theme}" >&2

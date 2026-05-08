@@ -22,7 +22,7 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Create the shared directory skeleton for all four themes before any CSS or properties work begins.
 
-- [ ] T001 Create the four theme directory skeletons: `themes/solstice/login/resources/css/`, `themes/nova/login/resources/css/`, `themes/verdant/login/resources/css/`, `themes/blueprint/login/resources/css/` (use `mkdir -p` for all four in one step)
+- [X] T001 Create the four theme directory skeletons: `themes/solstice/login/resources/css/`, `themes/nova/login/resources/css/`, `themes/verdant/login/resources/css/`, `themes/blueprint/login/resources/css/` (use `mkdir -p` for all four in one step)
 
 ---
 
@@ -32,7 +32,7 @@ description: "Task list template for feature implementation"
 
 **⚠️ Required before user story implementation begins**
 
-- [ ] T002 Confirm and record in `specs/007-keycloak-login-templates/plan.md` Constitution Check that this feature makes no changes to authentication behavior, Keycloak realm/client config, secrets, sessions, or container runtime security — presentation and packaging only
+- [X] T002 Confirm and record in `specs/007-keycloak-login-templates/plan.md` Constitution Check that this feature makes no changes to authentication behavior, Keycloak realm/client config, secrets, sessions, or container runtime security — presentation and packaging only
 
 **Checkpoint**: Security scope confirmed — user story work can begin in parallel
 
@@ -44,16 +44,16 @@ description: "Task list template for feature implementation"
 
 **Independent Test**: Open each theme in the Keycloak admin and confirm the layout, shape language, field treatment, and button styling match the contracts in `specs/007-keycloak-login-templates/contracts/reference-theme-acceptance-contracts.md`.
 
-- [ ] T003 [P] [US1] Create `themes/solstice/login/theme.properties` with `parent=keycloak.v2`, `import=common/keycloak`, `styles=css/login.css`, `kcHtmlClass=solstice-login`, `kcBodyClass=solstice-login-body`
-- [ ] T004 [P] [US1] Create `themes/nova/login/theme.properties` with `parent=keycloak.v2`, `import=common/keycloak`, `styles=css/login.css`, `kcHtmlClass=nova-login`, `kcBodyClass=nova-login-body`
-- [ ] T005 [P] [US1] Create `themes/verdant/login/theme.properties` with `parent=keycloak.v2`, `import=common/keycloak`, `styles=css/login.css`, `kcHtmlClass=verdant-login`, `kcBodyClass=verdant-login-body`
-- [ ] T006 [P] [US1] Create `themes/blueprint/login/theme.properties` with `parent=keycloak.v2`, `import=common/keycloak`, `styles=css/login.css`, `kcHtmlClass=blueprint-login`, `kcBodyClass=blueprint-login-body`
-- [ ] T007 [P] [US1] Create `themes/solstice/login/resources/css/login.css`: scoped under `.solstice-login`; split two-panel card (`.card-pf` flex layout, hero side with coral→yellow gradient `#FF6B6B`→`#FFE66D`, form side white); underline-only inputs (`.pf-c-form-control`) with coral focus border; pill submit button `#kc-login` (border-radius ≥20px, `#FF6B6B` fill); soft card shadow, 20px card radius; responsive single-column below 600px
-- [ ] T008 [P] [US1] Create `themes/nova/login/resources/css/login.css`: scoped under `.nova-login`; dark body/card (`.nova-login-body` `#1a1a1a` bg, `.card-pf` `#1a1a1a` bg, white text); `.pf-c-form__label` positioned absolute, float up and shrink on `:focus-within` and `:has(input:not(:placeholder-shown))`; underline-only `.pf-c-form-control` transparent bg; `#kc-login` purple `#8B5CF6` fill, 5px radius; error messages contrast-checked against dark bg; 15px card radius
-- [ ] T009 [P] [US1] Create `themes/verdant/login/resources/css/login.css`: scoped under `.verdant-login`; light `#f0f2f5` body bg; `.card-pf` white with 20px radius and soft shadow; circular ghost `::before`/`::after` pseudo-elements on `.card-pf` (green-tinted semi-transparent circles, `z-index: -1`); pill inputs `.pf-c-form-control` (`#f8f9fa` fill, 25px radius); pill `#kc-login` button (`#4CAF50` fill, 25px radius); responsive: circles hidden below 480px to avoid overlap
-- [ ] T010 [P] [US1] Create `themes/blueprint/login/resources/css/login.css`: scoped under `.blueprint-login`; neutral `#f4f4f4` body bg; `.card-pf` white, 8px radius, `box-shadow: 0 3px 6px rgba(0,0,0,0.1)`; `.pf-c-form-control` bottom-border-only with `::after` bar that expands from `width:0` to `width:100%` on focus using CSS transition; `.pf-c-form__label` floats up and turns `#2196F3` on focus/fill; `#kc-login` blue `#2196F3` fill, 4px radius, uppercase, `letter-spacing: 0.1em`, `box-shadow` elevation; 375px responsive pass
-- [ ] T011 [US1] Verify all four theme directories each contain exactly two files: `theme.properties` and `resources/css/login.css` — run `find themes/solstice themes/nova themes/verdant themes/blueprint -type f | sort` and confirm the listing
-- [ ] T012 [US1] Visual review: open `temp/examples/logins.html` and `specs/007-keycloak-login-templates/contracts/reference-theme-acceptance-contracts.md` side-by-side; confirm each CSS file satisfies all Visual Acceptance rows for its contract (layout, shape, color, input treatment, button)
+- [X] T003 [P] [US1] Create `themes/solstice/login/theme.properties` with `parent=keycloak.v2`, `import=common/keycloak`, `styles=css/login.css`, `kcHtmlClass=solstice-login`, `kcBodyClass=solstice-login-body`
+- [X] T004 [P] [US1] Create `themes/nova/login/theme.properties` with `parent=keycloak.v2`, `import=common/keycloak`, `styles=css/login.css`, `kcHtmlClass=nova-login`, `kcBodyClass=nova-login-body`
+- [X] T005 [P] [US1] Create `themes/verdant/login/theme.properties` with `parent=keycloak.v2`, `import=common/keycloak`, `styles=css/login.css`, `kcHtmlClass=verdant-login`, `kcBodyClass=verdant-login-body`
+- [X] T006 [P] [US1] Create `themes/blueprint/login/theme.properties` with `parent=keycloak.v2`, `import=common/keycloak`, `styles=css/login.css`, `kcHtmlClass=blueprint-login`, `kcBodyClass=blueprint-login-body`
+- [X] T007 [P] [US1] Create `themes/solstice/login/resources/css/login.css`: scoped under `.solstice-login`; split two-panel card (`.card-pf` flex layout, hero side with coral→yellow gradient `#FF6B6B`→`#FFE66D`, form side white); underline-only inputs (`.pf-c-form-control`) with coral focus border; pill submit button `#kc-login` (border-radius ≥20px, `#FF6B6B` fill); soft card shadow, 20px card radius; responsive single-column below 600px
+- [X] T008 [P] [US1] Create `themes/nova/login/resources/css/login.css`: scoped under `.nova-login`; dark body/card (`.nova-login-body` `#1a1a1a` bg, `.card-pf` `#1a1a1a` bg, white text); `.pf-c-form__label` positioned absolute, float up and shrink on `:focus-within` and `:has(input:not(:placeholder-shown))`; underline-only `.pf-c-form-control` transparent bg; `#kc-login` purple `#8B5CF6` fill, 5px radius; error messages contrast-checked against dark bg; 15px card radius
+- [X] T009 [P] [US1] Create `themes/verdant/login/resources/css/login.css`: scoped under `.verdant-login`; light `#f0f2f5` body bg; `.card-pf` white with 20px radius and soft shadow; circular ghost `::before`/`::after` pseudo-elements on `.card-pf` (green-tinted semi-transparent circles, `z-index: -1`); pill inputs `.pf-c-form-control` (`#f8f9fa` fill, 25px radius); pill `#kc-login` button (`#4CAF50` fill, 25px radius); responsive: circles hidden below 480px to avoid overlap
+- [X] T010 [P] [US1] Create `themes/blueprint/login/resources/css/login.css`: scoped under `.blueprint-login`; neutral `#f4f4f4` body bg; `.card-pf` white, 8px radius, `box-shadow: 0 3px 6px rgba(0,0,0,0.1)`; `.pf-c-form-control` bottom-border-only with `::after` bar that expands from `width:0` to `width:100%` on focus using CSS transition; `.pf-c-form__label` floats up and turns `#2196F3` on focus/fill; `#kc-login` blue `#2196F3` fill, 4px radius, uppercase, `letter-spacing: 0.1em`, `box-shadow` elevation; 375px responsive pass
+- [X] T011 [US1] Verify all four theme directories each contain exactly two files: `theme.properties` and `resources/css/login.css` — run `find themes/solstice themes/nova themes/verdant themes/blueprint -type f | sort` and confirm the listing
+- [X] T012 [US1] Visual review: open `temp/examples/logins.html` and `specs/007-keycloak-login-templates/contracts/reference-theme-acceptance-contracts.md` side-by-side; confirm each CSS file satisfies all Visual Acceptance rows for its contract (layout, shape, color, input treatment, button)
 
 ---
 
@@ -63,9 +63,9 @@ description: "Task list template for feature implementation"
 
 **Independent Test**: Run `./scripts/validate-theme-catalog.sh` after a clean build; all four themes appear as supported and no retired theme is present. Then complete the per-theme smoke checklist from `specs/007-keycloak-login-templates/quickstart.md`.
 
-- [ ] T013 [US2] Add four `COPY --chown=keycloak:keycloak` instructions to `Dockerfile` (after existing theme COPYs, before `RUN /opt/keycloak/bin/kc.sh build`): `themes/solstice/`, `themes/nova/`, `themes/verdant/`, `themes/blueprint/` — each copying to `/opt/keycloak/themes/{name}/`
-- [ ] T014 [US2] Add four `grep -qx` assertions to `scripts/validate-theme-catalog.sh` (after existing `atlas` assertion): `solstice`, `nova`, `verdant`, `blueprint` — following the identical pattern used for `futuristic`, `windows`, `atlas`
-- [ ] T015 [US2] Build the Docker image (`docker build -t spec-keycloak .` or `podman build`) and run `./scripts/validate-theme-catalog.sh spec-keycloak`; confirm exit code 0 and all four new themes appear in packaged theme list
+- [X] T013 [US2] Add four `COPY --chown=keycloak:keycloak` instructions to `Dockerfile` (after existing theme COPYs, before `RUN /opt/keycloak/bin/kc.sh build`): `themes/solstice/`, `themes/nova/`, `themes/verdant/`, `themes/blueprint/` — each copying to `/opt/keycloak/themes/{name}/`
+- [X] T014 [US2] Add four `grep -qx` assertions to `scripts/validate-theme-catalog.sh` (after existing `atlas` assertion): `solstice`, `nova`, `verdant`, `blueprint` — following the identical pattern used for `futuristic`, `windows`, `atlas`
+- [X] T015 [US2] Build the Docker image (`docker build -t spec-keycloak .` or `podman build`) and run `./scripts/validate-theme-catalog.sh spec-keycloak`; confirm exit code 0 and all four new themes appear in packaged theme list
 - [ ] T016 [US2] Start local Keycloak via `podman-compose up -d`; set each of the four themes in admin → Realm Settings → Themes → Login Theme; for each theme complete the smoke checklist in `specs/007-keycloak-login-templates/quickstart.md` (page loads, fields visible, submit works, error message readable)
 - [ ] T017 [US2] For each theme, trigger a deliberate login failure (wrong password) and confirm the Keycloak error message is visible, readable, and not obscured by theme layout or decorative elements
 
@@ -84,8 +84,8 @@ description: "Task list template for feature implementation"
 
 ## Final Phase: Polish & Cross-Cutting Concerns
 
-- [ ] T020 Run a final clean image build and `./scripts/validate-theme-catalog.sh` to confirm the complete supported catalog (`futuristic`, `windows`, `atlas`, `solstice`, `nova`, `verdant`, `blueprint`) passes and no retired theme (`demo`, `noir`, `pulse`, `terminal`) leaks in
-- [ ] T021 [P] Update `specs/007-keycloak-login-templates/spec.md` Status field from `Draft` to `Complete`
+- [X] T020 Run a final clean image build and `./scripts/validate-theme-catalog.sh` to confirm the complete supported catalog (`futuristic`, `windows`, `atlas`, `solstice`, `nova`, `verdant`, `blueprint`) passes and no retired theme (`demo`, `noir`, `pulse`, `terminal`) leaks in
+- [X] T021 [P] Update `specs/007-keycloak-login-templates/spec.md` Status field from `Draft` to `Complete`
 
 ---
 
